@@ -1,0 +1,84 @@
+@import './defaultValues.less';
+
+.paragraph {
+  padding: 0.5rem 0rem;
+  border-color: @paragraph-border-color;
+  border-style: solid none;
+  border-width: 0.2rem 0rem;
+  background-color: @paragraph-background-color;
+  display: grid;
+  grid-template-columns: 1.25rem auto;
+}
+
+.paragraph > .textContainer > textarea:active {
+  border: solid 2px
+    mix(@paragraph-background-color, @paragraph-lineNumber-color, 10%);
+}
+
+.textContainer {
+  height: auto;
+  overflow: hidden;
+  display: block;
+  padding: 0;
+  margin: 0;
+
+  transform: translateZ(0);
+}
+
+.paragraph.active,
+.textContainer.active {
+  background-color: mix(
+    @paragraph-background-color,
+    @paragraph-lineNumber-color,
+    70%
+  );
+}
+.dataText-textarea.active {
+  color: darken(@paragraph-text-color, 10%);
+}
+.lineNumber.active {
+  background-color: lighten(@paragraph-background-color, 10%);
+}
+
+.lineNumber {
+  border-style: solid;
+  border-width: 1px 0px;
+  border-color: @textarea-border-color;
+  color: @paragraph-lineNumber-color;
+  font-size: @paragraph-fontSize;
+  text-align: left;
+  padding: 20% 0.5rem;
+
+  overflow: hidden;
+  font-family: @paragraph-font;
+}
+
+.dataText-textarea {
+  z-index: 2;
+  display: flex;
+  overflow: hidden;
+  border: 1px solid @textarea-border-color;
+  outline: none;
+  background: transparent;
+  color: @paragraph-text-color;
+  font-size: @paragraph-fontSize;
+  resize: none;
+
+  caret-color: auto;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  font-family: @paragraph-font;
+}
+
+.backDrop {
+  z-index: 1;
+  position: absolute;
+  color: transparent;
+
+  padding: 1px;
+  overflow: hidden;
+  font-size: @paragraph-fontSize;
+  font-family: @paragraph-font;
+  width: auto;
+}
